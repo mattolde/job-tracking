@@ -41,7 +41,7 @@ app.use(express.static(__dirname + '/public'));
 if(env === 'development') {
   mongoose.connect('mongodb://localhost/jobs');
 } else {
-
+  mongoose.connect('mongodb://' + process.env.MONGOLABS_USER + ':' + process.env.MONGOLABS_USER_PASS + '.mongolab.com:35240/jobs');
 }
 
 var db = mongoose.connection;
