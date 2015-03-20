@@ -1,0 +1,23 @@
+{
+  "name": "job-tracking",
+  "version": "0.0.0",
+  "description": "All the jobs!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattolde/job-tracking.git"
+  },
+  "author": "Matt Olde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattolde/job-tracking/issues"
+  },
+  "homepage": "https://github.com/mattolde/job-tracking",
+  "dependencies": {
+    "express": "^4.12.3",
+    "jade": "^1.9.2"
+  }
+}
