@@ -1,5 +1,6 @@
-angular.module('app').controller('mainCtrl', ['$scope', function($scope){
+angular.module('app')
 
-  // get data for main
+.controller('mainCtrl', ['$scope', function($scope){
+
 
 }]);
