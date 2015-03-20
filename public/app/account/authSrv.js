@@ -25,6 +25,20 @@ angular.module('app')
         });
 
         return dfd.promise;
+    },
+
+    logoutUser: function() {
+
+      var dfd = $q.defer();
+
+      $http.post('/logout', {logout:true})
+        .then(function(){
+          identitySrv.currentUser = undefined;
+          dfd.resolve();
+        });
+
+      return dfd.promise;
+
     }
 
   };

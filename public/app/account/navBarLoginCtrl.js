@@ -1,6 +1,6 @@
 angular.module('app')
 
-.controller('navBarLoginCtrl', ['$scope','$http','notifierSrv', 'identitySrv', 'authSrv', function($scope, $http, notifierSrv, identitySrv, authSrv){
+.controller('navBarLoginCtrl', ['$scope','$http','notifierSrv', 'identitySrv', 'authSrv', '$location', function($scope, $http, notifierSrv, identitySrv, authSrv, $location){
 
 
   $scope.identity = identitySrv;
@@ -17,6 +17,15 @@ angular.module('app')
         }
 
       });
+  };
+
+  $scope.signout = function() {
+    authSrv.logoutUser().then(function(){
+      $scope.username = '';
+      $scope.password = '';
+      notifierSrv.notify('Successfully logged out.');
+      $location.path('/');
+    });
   };
 
 }]);
