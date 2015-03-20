@@ -9,7 +9,7 @@
   "engines": {
     "node": "0.10.*",
     "npm": "1.4.*"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/mattolde/job-tracking.git"
