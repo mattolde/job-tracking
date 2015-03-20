@@ -34,6 +34,10 @@ app.use(stylus.middleware(
 // Setup static file location for express will serve the file when requested.
 app.use(express.static(__dirname + '/public'));
 
+app.get('/partials/:partialPath', function(req, res) {
+  res.render('partials/' + req.params.partialPath);
+});
+
 
 // ROUTES
 
