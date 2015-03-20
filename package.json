@@ -4,9 +4,9 @@
   "description": "All the jobs!",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
   },
-  "postinstall": "bower install",
   "engines": {
     "node": "0.10.*",
     "npm": "1.4.*"
