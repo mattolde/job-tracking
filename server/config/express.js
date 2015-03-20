@@ -1,7 +1,10 @@
 var express = require('express'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
-    stylus = require('stylus');
+    stylus = require('stylus'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
+    passport = require('passport');
 
 module.exports = function(app, config) {
 
@@ -10,14 +13,18 @@ module.exports = function(app, config) {
   app.set('view engine', 'jade');
 
   // MIDDLEWARE
+  app.use(logger('dev'));
+  app.use(cookieParser());
+  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.json());
+  app.use(passport.initialize());
+  app.use(session({secret:config.secret,resave:false,saveUninitialized:false}));
+
   // middleware function for stylus
   function compileStylus(str, path) {
     return stylus(str).set('filename', path);
   }
 
-  app.use(logger('dev'));
-  app.use(bodyParser.urlencoded({extended: true}));
-  // app.use(bodyParser.json());
   app.use(stylus.middleware(
     {
       src: config.rootPath + '/public',
@@ -25,6 +32,6 @@ module.exports = function(app, config) {
     }
   ));
 
-  // Setup static file location for express will serve the file when requested.
+  // Setup static file location
   app.use(express.static(config.rootPath + '/public'));
 };

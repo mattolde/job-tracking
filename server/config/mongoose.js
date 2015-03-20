@@ -11,4 +11,25 @@ module.exports = function(config){
   });
 
 
+  var userSchema = mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    userName: String
+  });
+
+  var User = mongoose.model('User', userSchema);
+
+  // Create some users if none are found
+  User.find({}).exec(function(err, collection) {
+
+    if(collection.length === 0){
+
+      User.create({firstName: 'Nick', lastName: 'Dallas', userName: 'nDallas'});
+      User.create({firstName: 'Kate', lastName: 'Bell', userName: 'kBell'});
+      User.create({firstName: 'Sarah', lastName: 'Doc', userName: 'sDoc'});
+
+    }
+
+  });
+
 };

@@ -25,3 +25,6 @@ footer p {
   padding-top: 10px;
   border-top: 1px solid #ccc;
 }
+#toast-container {
+  margin-top: 50px;
+}
