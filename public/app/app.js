@@ -8,10 +8,3 @@ angular.module('app').config(function($routeProvider, $locationProvider){
     $locationProvider.html5Mode(true);
 
 });
-
-
-angular.module('app').controller('mainCtrl', ['$scope', function($scope){
-
-  $scope.myVar = 'Hello NG!!!';
-
-}]);

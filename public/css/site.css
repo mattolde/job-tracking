@@ -1,0 +1,24 @@
+body {
+  padding-top: 61px;
+}
+.navbar {
+  color: #fff;
+}
+.navbar-header {
+  margin-top: -15px;
+  margin-bottom: -20px;
+}
+a.navbar-brand {
+  margin-top: 15px;
+}
+.content {
+  margin-top: 30px;
+}
+footer {
+  margin-top: 50px;
+  padding: 0 15px;
+}
+footer p {
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
