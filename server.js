@@ -38,7 +38,12 @@ app.use(express.static(__dirname + '/public'));
 
 // Mongo setup
 
-mongoose.connect('mongodb://localhost/jobs');
+if(env === 'development') {
+  mongoose.connect('mongodb://localhost/jobs');
+} else {
+
+}
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error...'));
 db.once('open', function() {
@@ -74,6 +79,6 @@ app.get('*', function(req, res) {
 
 
 // Start server
-var port = 3030;
+var port = process.env.PORT || 3030;
 app.listen(port);
 console.log('Listening on port ' + port + '...');
