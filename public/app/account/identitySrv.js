@@ -1,11 +1,13 @@
 angular.module('app')
 
-.factory('identitySrv', ['$window',function($window){
+.factory('identitySrv', ['$window', 'userSrv', function($window){
 
   var currentUser;
 
   if($window.bootstrappedUserObject) {
-    currentUser = $window.bootstrappedUserObject;
+    currentUser = new userSrv();
+    
+    angular.extend(currentUser, $window.bootstrappedUserObject);
   }
 
   return {

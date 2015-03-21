@@ -1,6 +1,6 @@
 angular.module('app')
 
-.factory('authSrv', ['$http', 'identitySrv', '$q', function($http, identitySrv, $q){
+.factory('authSrv', ['$http', 'identitySrv', '$q', 'userSrv', function($http, identitySrv, $q, userSrv){
 
   return {
 
@@ -14,7 +14,13 @@ angular.module('app')
 
           if(res.data.success){
 
-            identitySrv.currentUser = res.data.user;
+            var user = new userSrv();
+
+            // extending user to have userSrv isAdmin
+            angular.extend(user, res.data.user);
+
+            identitySrv.currentUser = user;
+
             dfd.resolve(true);
 
           } else {
