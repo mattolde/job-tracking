@@ -13,6 +13,12 @@ angular.module('app')
         templateUrl: '/partials/main/main',
         controller: 'mainCtrl'
       }
+    )
+    .when('/admin/users',
+      {
+        templateUrl: '/partials/admin/user-list',
+        controller: 'userListCtrl'
+      }
     );
 
 });
