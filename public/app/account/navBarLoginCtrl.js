@@ -2,7 +2,6 @@ angular.module('app')
 
 .controller('navBarLoginCtrl', ['$scope','$http','notifierSrv', 'identitySrv', 'authSrv', '$location', function($scope, $http, notifierSrv, identitySrv, authSrv, $location){
 
-
   $scope.identity = identitySrv;
 
   $scope.signin = function(username, password){

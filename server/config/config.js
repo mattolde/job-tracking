@@ -10,7 +10,7 @@ module.exports = {
     port: process.env.PORT || 3030,
     secret: secret
   },
-  producttion: {
+  production: {
     rootPath: rootPath,
     db: 'mongodb://' + process.env.MONGOLABS_USER + ':' + process.env.MONGOLABS_USER_PASS + '.mongolab.com:35240/jobs',
     port: process.env.PORT || 80,

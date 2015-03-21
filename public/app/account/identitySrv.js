@@ -1,19 +1,19 @@
 angular.module('app')
 
-.factory('identitySrv', [function(){
+.factory('identitySrv', ['$window',function($window){
+
+  var currentUser;
+
+  if($window.bootstrappedUserObject) {
+    currentUser = $window.bootstrappedUserObject;
+  }
 
   return {
 
-    currentUser: undefined,
+    currentUser: currentUser,
 
     isAuthenticated: function(){
-
-      if(this.currentUser){
-        return true;
-      } else {
-        return false;
-      }
-
+      return !!this.currentUser;
     }
 
   };
