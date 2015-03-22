@@ -59,7 +59,7 @@ angular.module('app')
 
     createUser: function(userData) {
 
-      var newUser = new User(userData);
+      var newUser = new userSrv(userData);
       var dfd = $q.defer();
 
       newUser.$save().then(function() {

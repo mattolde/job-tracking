@@ -29,7 +29,7 @@ angular.module('app')
         resolve: routeRoleChecks.admin
       }
     )
-    when('/signup',
+    .when('/signup',
       {
         templateUrl: '/partials/account/signup',
         controller: 'signupCtrl'
