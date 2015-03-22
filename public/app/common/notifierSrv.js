@@ -12,7 +12,7 @@ angular.module('app')
     },
 
     error: function(errorMsg) {
-      toastr.error(msg);
+      toastr.error(errorMsg);
     }
 
   };
