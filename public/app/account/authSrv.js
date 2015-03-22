@@ -62,6 +62,8 @@ angular.module('app')
       var newUser = new userSrv(userData);
       var dfd = $q.defer();
 
+      console.log(newUser);
+
       newUser.$save().then(function() {
 
         identitySrv.currentUser = newUser;

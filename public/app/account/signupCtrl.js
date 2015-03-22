@@ -1,6 +1,6 @@
 angular.module('app')
 
-.controller('signupCtrl', ['$scope', 'authSrv','notifierSrv', function($scope, authSrv, notifierSrv){
+.controller('signupCtrl', ['$scope', 'authSrv','notifierSrv', '$location', function($scope, authSrv, notifierSrv, $location){
 
   $scope.signup = function() {
 

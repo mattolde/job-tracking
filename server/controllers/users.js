@@ -13,6 +13,8 @@ exports.createUser = function(req, res, next) {
 
   var userData = req.body;
 
+  console.log(userData);
+
   userData.salt = encryption.createSalt();
   userData.hashed_pwd = encryption.hashPwd(userData.salt, userData.password);
 
