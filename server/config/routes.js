@@ -10,9 +10,7 @@ module.exports = function(app){
     res.render('../../public/app/' + req.params[0]);
   });
 
-
   app.post('/login', auth.authenticate);
-
 
   app.post('/logout', function(req, res){
     req.logout();
