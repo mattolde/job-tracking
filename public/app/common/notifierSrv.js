@@ -8,10 +8,12 @@ angular.module('app')
   return {
 
     notify: function(msg) {
+      console.log(msg);
       toastr.success(msg);
     },
 
     error: function(errorMsg) {
+      console.log(errorMsg);
       toastr.error(errorMsg);
     }
 

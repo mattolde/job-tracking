@@ -9,6 +9,9 @@ angular.module('app')
       auth: function(authSrv) {
         return authSrv.authorizeCurrentUserForRoute('admin');
       }
+    },
+    user: function(authSrv) {
+      return authSrv.authorizeAuthenticatedUserForRoute();
     }
   };
 
@@ -27,6 +30,13 @@ angular.module('app')
         templateUrl: '/partials/admin/user-list',
         controller: 'userListCtrl',
         resolve: routeRoleChecks.admin
+      }
+    )
+    .when('/profile',
+      {
+        templateUrl: '/partials/account/profile',
+        controller: 'profileCtrl',
+        resolve: routeRoleChecks.user
       }
     )
     .when('/signup',

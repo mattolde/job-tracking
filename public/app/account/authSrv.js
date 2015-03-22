@@ -57,6 +57,16 @@ angular.module('app')
 
     },
 
+    authorizeAuthenticatedUserForRoute: function() {
+
+      if(identitySrv.isAuthenticated()) {
+        return true;
+      } else {
+        return $q.reject('not authorized');
+      }
+
+    },
+
     createUser: function(userData) {
 
       var newUser = new userSrv(userData);
@@ -71,6 +81,25 @@ angular.module('app')
 
         dfd.reject(response.data.reason);
 
+      });
+
+      return dfd.promise;
+
+    },
+
+    updateCurrentUser: function(userData) {
+
+      var dfd = $q.defer();
+
+      var clone = angular.copy(identitySrv.currentUser);
+
+      angular.extend(clone, userData);
+
+      clone.$update(function(){
+        identitySrv.currentUser = clone;
+        dfd.resolve();
+      }, function(response) {
+        dfd.reject(response.data.reason);
       });
 
       return dfd.promise;

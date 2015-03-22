@@ -39,3 +39,35 @@ exports.createUser = function(req, res, next) {
   });
 
 };
+
+exports.userUpdate = function(req, res) {
+
+  var userData = req.body;
+
+  if(req.user._id !== userData._id && !req.user.hasRole('admin')) {
+
+    res.status(403);
+    return res.end();
+
+  }
+
+  req.user.firstName = userData.firstName;
+  req.user.lastName = userData.lastName;
+  req.user.username = userData.username;
+
+  if(userData.password && userData.password.length > 0) {
+    req.user.salt = encryption.createSalt();
+    req.user.hashed_pwd = encryption.hashPwd(req.user.salt, userData.password);
+  }
+
+  req.user.save(function(err) {
+    if(err) {
+      res.status(400);
+      return res.send({
+        reason: err.toString()
+      });
+    }
+    res.send(req.user);
+  });
+
+};
