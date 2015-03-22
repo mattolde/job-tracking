@@ -9,7 +9,10 @@ angular.module('app')
 
     notify: function(msg) {
       toastr.success(msg);
-      console.log(msg);
+    },
+
+    error: function(errorMsg) {
+      toastr.error(msg);
     }
 
   };

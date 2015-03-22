@@ -28,6 +28,12 @@ angular.module('app')
         controller: 'userListCtrl',
         resolve: routeRoleChecks.admin
       }
+    )
+    when('/signup',
+      {
+        templateUrl: '/partials/account/signup',
+        controller: 'signupCtrl'
+      }
     );
 
 });

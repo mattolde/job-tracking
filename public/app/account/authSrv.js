@@ -55,6 +55,26 @@ angular.module('app')
         return $q.reject('not authorized');
       }
 
+    },
+
+    createUser: function(userData) {
+
+      var newUser = new User(userData);
+      var dfd = $q.defer();
+
+      newUser.$save().then(function() {
+
+        identitySrv.currentUser = newUser;
+        dfd.resolve();
+
+      }, function(response) {
+
+        dfd.reject(response.data.reason);
+
+      });
+
+      return dfd.promise;
+
     }
 
   };
