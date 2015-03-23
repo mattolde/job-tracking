@@ -1,0 +1,13 @@
+.container
+  h1 {{ job.company }} - {{ job.title }}
+
+  .row
+    .col-md-6
+      h3(ng-show="!job.open")  Closed
+      h3 Created on {{ job.date | date }}
+
+    .col-md-6
+      .panel.panel-primary
+        .panel-heading Skills
+        .panel-body
+          div(ng-repeat="skill in job.skills") {{ skill }}

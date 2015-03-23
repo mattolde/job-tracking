@@ -53,6 +53,13 @@ angular.module('app')
         controller: 'jobListCtrl',
         resolve: routeRoleChecks.user
       }
+    )
+    .when('/jobs/:id',
+      {
+        templateUrl: '/partials/jobs/job-details',
+        controller: 'jobDetailsCtrl',
+        resolve: routeRoleChecks.user
+      }
     );
 
 });

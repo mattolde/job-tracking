@@ -16,7 +16,8 @@
         th Date
       tbody
         tr(ng-repeat="job in jobs | filter:searchText | orderBy:sortOrder")
-          td {{ job.company }}
+          td 
+            a(href="/jobs/{{job._id}}") {{ job.company }}
           td {{ job.title }}
           td {{ job.description }}
           td {{ job.date | date }}

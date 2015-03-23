@@ -9,6 +9,7 @@ module.exports = function(app){
   app.put('/api/users', users.userUpdate);
 
   app.get('/api/jobs', jobs.getJobs);
+  app.get('/api/jobs/:id', jobs.getJobById);
   // app.post('/api/jobs', jobs.createJobs);
   // app.put('/api/jobs', jobs.updateJob);
   // app.delete('/api/jobs', jobs.deleteJob);
