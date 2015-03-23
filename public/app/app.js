@@ -10,8 +10,10 @@ angular.module('app')
         return authSrv.authorizeCurrentUserForRoute('admin');
       }
     },
-    user: function(authSrv) {
-      return authSrv.authorizeAuthenticatedUserForRoute();
+    user: {
+      user: function(authSrv) {
+        return authSrv.authorizeAuthenticatedUserForRoute();
+      }
     }
   };
 
@@ -43,6 +45,13 @@ angular.module('app')
       {
         templateUrl: '/partials/account/signup',
         controller: 'signupCtrl'
+      }
+    )
+    .when('/jobs',
+      {
+        templateUrl: '/partials/jobs/job-list',
+        controller: 'jobListCtrl',
+        resolve: routeRoleChecks.user
       }
     );
 

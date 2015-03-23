@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-    userModel = require('../models/User');
+var mongoose = require('mongoose'),
+    userModel = require('../models/User'),
+    jobModel = require('../models/Job');
 
 module.exports = function(config){
 
@@ -12,5 +13,6 @@ module.exports = function(config){
   });
 
   userModel.createDefaultUsers();
+  jobModel.createDefaultJobs();
 
 };
